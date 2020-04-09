@@ -1,0 +1,95 @@
+@layout('layouts.app')
+@section('content')
+
+<section id="venue" class="wow fadeInUp mt-5">
+
+    <div class="container p-2 mt-5 mb-5">
+        <div class="col-md-8 mx-auto">
+            <h1 class="text-center">Apply Now</h1>
+            <form action="/storeApplication" method="POST" enctype="multipart/form-data">
+                <input type="text" name="AppID" value="{{AppID}}" class="mt-2 form-control" id="" hidden>
+                <h4 class="mt-2">Details of Incubatee</h4>
+                <div class="border rounded p-2">
+                    <label class="mt-2">Name</label>
+                    <input type="text" name="name" class="mt-2 form-control" id="">
+                    <label class="mt-2">Category</label>
+                    <select name="category" id="" class="mt-2 form-control">
+                        <option value="Student">Student</option>
+                        <option value="Faculty">Faculty</option>
+                        <option value="Outsider">Outsider</option>
+                    </select>
+                    <label class="mt-2">State</label>
+                    <input type="text" name="state" class="mt-2 form-control" id="">
+                    <label class="mt-2">District</label>
+                    <input type="text" name="district" class="mt-2 form-control" id="">
+                    <label class="mt-2">Email</label>
+                    <input type="email" name="email" class="mt-2 form-control" id="">
+                    <label class="mt-2">Phone Number</label>
+                    <input type="text" name="phone" class="mt-2 form-control" id="">
+                    <label class="mt-2">Address</label>
+                    <textarea name="address" class="form-control mt-2"></textarea>
+                </div>
+
+                <h4 class="mt-2">Details of Idea</h4>
+                <div class="border rounded p-2">
+                    <label class="mt-2">Title of proposed idea/innovation</label>
+                    <input type="text" name="ideaTitle" class="mt-2 form-control" id="">
+                    <label class="mt-2">Whether the idea involves use of existing intellectual property or not, give
+                        brief detail there of
+                    </label>
+                    <textarea name="properties" class="form-control mt-2"></textarea>
+                    <label class="mt-2">Briefly explain newness/uniqueness of the innovation</label>
+                    <textarea name="newNess" class="form-control mt-2"></textarea>
+                    <label class="mt-2">Name and details of Team</label>
+                    <textarea name="team" class="form-control mt-2"></textarea>
+                    <label class="mt-2">Name of the Mentor</label>
+                    <input type="text" name="mentorName" class="mt-2 form-control" id="">
+                    <label class="mt-2">Mentor's Email</label>
+                    <input type="email" name="mentorMail" class="mt-2 form-control" id="">
+                    <label class="mt-2">Mentor's Phone Number</label>
+                    <input type="text" name="mentorNumber" class="mt-2 form-control" id="">
+                    <label class="mt-2">Current Development Status of innovation</label>
+                    <select name="ideaStatus" id="" class="mt-2 form-control">
+                        <option value="Ideation">Ideation</option>
+                        <option value="Prototype">Prototype</option>
+                        <option value="Ready for live">Ready for live</option>
+                    </select>
+                    <label class="mt-2">Expected time of completion of idea</label>
+                    <input type="date" name="expectedTime" class="mt-2 form-control" id="">
+                </div>
+                <h4 class="mt-2">Budget and Resources Required</h4>
+                <div class="border rounded p-2">
+                    <label class="mt-2">Budget required</label>
+                    <input type="text" name="budgetRequired" class="mt-2 form-control" id="">
+                    <label class="mt-2">Resources Required</label>
+                    <div class="form-group">
+                        <input type="checkbox" name="resourcesRequired" value="Workspace" id="" class=""> Workspace <br>
+                        <input type="checkbox" name="resourcesRequired" value="Testing zone" id="" class=""> Testing
+                        zone <br>
+                        <input type="checkbox" name="resourcesRequired" value="Iot lab access" id="" class=""> Iot lab
+                        access <br>
+                        <input type="checkbox" name="resourcesRequired" value="Seed funding" id="" class=""> Seed
+                        funding <br>
+                        <input type="checkbox" name="resourcesRequired" value="Documentation support" id="" class="">
+                        Documentation support <br>
+                        <input type="checkbox" name="resourcesRequired" value="mentor support" id="" class=""> mentor
+                        support <br>
+                    </div>
+                </div>
+
+                <h4 class="mt-2">Documents Upload</h4>
+                <div class="border rounded p-2">
+                    <label class="mt-2">Aadhar card</label>
+                    <input type="file" name="aadharCard" class="mt-2 form-control" id="">
+                    <label class="mt-2">ID card</label>
+                    <input type="file" name="studentId" class="mt-2 form-control" id="">
+                    <label class="mt-2">Outsiders NOC</label>
+                    <input type="file" name="noc" class="mt-2 form-control" id="">
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Apply</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+@endsection

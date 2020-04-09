@@ -1,0 +1,23 @@
+@layout('layouts.app')
+@section('content')
+
+<section id="venue" class="wow fadeInUp mt-5">
+
+    <div class="container p-2 mt-5 mb-5">
+        <div class="col-md-6 mx-auto">
+            <h1 class="text-center">Signup</h1>
+            <form action="/storeUser" method="POST">
+                <label class="mt-2">User Name</label>
+                <input type="text" name="username" class="mt-2 form-control" id="">
+                <label class="mt-2">Email</label>
+                <input type="email" name="email" class="mt-2 form-control" id="">
+                <label class="mt-2">Password</label>
+                <input type="password" name="password" class="mt-2 form-control" id="">
+                <button type="submit" class="btn btn-primary mt-3">Signup</button>
+            </form>
+            <p class="mt-4"> Not a member yet!.. <a href="/loginPage">LOGIN NOW</a></p>
+        </div>
+    </div>
+</section>
+
+@endsection

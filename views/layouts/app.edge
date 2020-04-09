@@ -9,8 +9,8 @@
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="/img/favicon.png" rel="icon">
+    <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link
@@ -18,16 +18,16 @@
         rel="stylesheet">
 
     <!-- Bootstrap CSS File -->
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Libraries CSS Files -->
-    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/venobox/venobox.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/lib/venobox/venobox.css" rel="stylesheet">
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Main Stylesheet File -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 
     <!-- =======================================================
     Theme Name: TheEvent
@@ -49,7 +49,7 @@
                 <!-- Uncomment below if you prefer to use a text logo -->
                 <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
                 <a href="#intro" class="scrollto">
-                    <!--<img src="img/logo.png" alt="" title="">-->
+                    <!--<img src="/img/logo.png" alt="" title="">-->
                     <h3 style="color: #00a245;" class="mt-1"><b>Hitam | EDC</b></h3>
                 </a>
             </div>
@@ -63,11 +63,22 @@
                     <li><a href="/#events">Events</a></li>
                     <li><a href="/mentors">Mentors</a></li>
                     <li><a href="/gallery">Gallery</a></li>
+                    @if(!auth)
+                    <li><a href="/loginPage">Login</a></li>
+                    @else
+                    @if(!admin)
+                    <li><a href="/myApplications">My Applications</a></li>
+                    @else
+                    <li><a href="/listApplications">All Applications</a></li>
+                    @endif
+                    <li><a href="/logout">Logout</a></li>
+                    @endif
                     <!-- <li><a href="#supporters">Sponsors</a></li>
                     <li><a href="#contact">Contact</a></li> -->
-                    <li class="services"><a href="#">Apply Now</a></li>
+                    <li class="services"><a href="/apply">Apply Now</a></li>
                     <a href="http://www.hitam.org/">
-                        <li><img src="img/hitam_logo.JPG" class="ml-3" id="hitam-logo" height="50px" width="40px" alt=""></li>
+                        <li><img src="/img/hitam_logo.JPG" class="ml-3" id="hitam-logo" height="50px" width="40px"
+                                alt=""></li>
                     </a>
                 </ul>
             </nav><!-- #nav-menu-container -->
@@ -100,7 +111,8 @@
                                 <div class="contact-address">
                                     <i class="ion-ios-location-outline"></i>
                                     <h3>Address</h3>
-                                    <address>A108 Adam Street, NY 535022, USA</address>
+                                    <address>Gowdavelly (Village),Medchal (Mandal),Ranga Reddy
+                                        (Dist.),Telangana,India - 501401</address>
                                 </div>
                             </div>
 
@@ -108,7 +120,7 @@
                                 <div class="contact-phone">
                                     <i class="ion-ios-telephone-outline"></i>
                                     <h3>Phone Number</h3>
-                                    <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+                                    <p><a href="tel:+91 9870276848">+91 9870276848</a></p>
                                 </div>
                             </div>
 
@@ -116,13 +128,13 @@
                                 <div class="contact-email">
                                     <i class="ion-ios-email-outline"></i>
                                     <h3>Email</h3>
-                                    <p><a href="mailto:info@example.com">info@example.com</a></p>
+                                    <p><a href="mailto:ssg.edc@hitam.org">ssg.edc@hitam.org</a></p>
                                 </div>
                             </div>
 
                         </div>
 
-                        <div class="form">
+                        <!-- <div class="form">
                             <div id="sendmessage">Your message has been sent. Thank you!</div>
                             <div id="errormessage"></div>
                             <form action="" method="post" role="form" class="contactForm">
@@ -153,7 +165,7 @@
                                 </div>
                                 <div class="text-center"><button type="submit">Send Message</button></div>
                             </form>
-                        </div>
+                        </div> -->
 
                     </div>
                 </section><!-- #contact -->
@@ -179,21 +191,21 @@
     <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 
     <!-- JavaScript Libraries -->
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/jquery/jquery-migrate.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/superfish/hoverIntent.js"></script>
-    <script src="lib/superfish/superfish.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/venobox/venobox.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/superfish/hoverIntent.js"></script>
+    <script src="/lib/superfish/superfish.min.js"></script>
+    <script src="/lib/wow/wow.min.js"></script>
+    <script src="/lib/venobox/venobox.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Contact Form JavaScript File -->
-    <script src="contactform/contactform.js"></script>
+    <script src="/contactform/contactform.js"></script>
 
     <!-- Template Main Javascript File -->
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 
 </html>

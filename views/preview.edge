@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application preview</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section id="venue" class="wow fadeInUp mt-5">
+
+        <div class="container p-2 mt-5 mb-5">
+            <div class="col-md-8 mx-auto">
+                <h1 class="text-center">Application Preview</h1>
+                <label class="mt-2">Application ID</label>
+                <input type="text" name="AppID" value="{{application.AppID}}" disabled class="mt-2 form-control" id="">
+                <h4 class="mt-2">Details of Incubatee</h4>
+                <div class="border rounded p-2">
+                    <label class="mt-2">Name</label>
+                    <input type="text" name="name" value="{{application.name}}" disabled class="mt-2 form-control"
+                        id="">
+                    <label class="mt-2">Category</label>
+                    <select name="category" value="{{application.category}}" disabled id="" class="mt-2 form-control">
+                        <option value="Student">Student</option>
+                        <option value="Faculty">Faculty</option>
+                        <option value="Outsider">Outsider</option>
+                    </select>
+                    <label class="mt-2">State</label>
+                    <input type="text" name="state" value="{{application.state}}" disabled class="mt-2 form-control"
+                        id="">
+                    <label class="mt-2">District</label>
+                    <input type="text" name="district" value="{{application.district}}" disabled
+                        class="mt-2 form-control" id="">
+                    <label class="mt-2">Email</label>
+                    <input type="email" name="email" value="{{application.email}}" disabled class="mt-2 form-control"
+                        id="">
+                    <label class="mt-2">Phone Number</label>
+                    <input type="text" name="phone" value="{{application.phone}}" disabled class="mt-2 form-control"
+                        id="">
+                    <label class="mt-2">Address</label>
+                    <textarea name="address" disabled class="form-control mt-2">{{application.address}}</textarea>
+                </div>
+
+                <h4 class="mt-2">Details of Idea</h4>
+                <div class="border rounded p-2">
+                    <label class="mt-2">Title of proposed idea/innovation</label>
+                    <input type="text" name="ideaTitle" value="{{application.ideaTitle}}" disabled
+                        class="mt-2 form-control" id="">
+                    <label class="mt-2">Whether the idea involves use of existing intellectual property or not, give
+                        brief detail there of
+                    </label>
+                    <textarea name="properties" disabled class="form-control mt-2">{{application.properties}}</textarea>
+                    <label class="mt-2">Briefly explain newness/uniqueness of the innovation</label>
+                    <textarea name="newNess" disabled class="form-control mt-2">{{application.newNess}}</textarea>
+                    <label class="mt-2">Name and details of Team</label>
+                    <textarea name="team" disabled class="form-control mt-2">{{application.team}}</textarea>
+                    <label class="mt-2">Name of the Mentor</label>
+                    <input type="text" name="mentorName" value="{{application.mentorName}}" disabled
+                        class="mt-2 form-control" id="">
+                    <label class="mt-2">Mentor's Email</label>
+                    <input type="email" name="mentorMail" value="{{application.mentorMail}}" disabled
+                        class="mt-2 form-control" id="">
+                    <label class="mt-2">Mentor's Phone Number</label>
+                    <input type="text" name="mentorNumber" value="{{application.mentorNumber}}" disabled
+                        class="mt-2 form-control" id="">
+                    <label class="mt-2">Current Development Status of innovation</label>
+                    <select name="ideaStatus" value="{{application.ideaStatus}}" disabled id=""
+                        class="mt-2 form-control">
+                        <option value="Ideation">Ideation</option>
+                        <option value="Prototype">Prototype</option>
+                        <option value="Ready for live">Ready for live</option>
+                    </select>
+                    <label class="mt-2">Expected time of completion of idea</label>
+                    @if(application.expectedTime)
+                    <input type="date" name="expectedTime" value="{{application.expectedTime.toDateString()}}" disabled
+                        class="mt-2 form-control" id="">
+                    @else
+                    <input type="date" name="expectedTime" value="{{application.expectedTime}}" disabled
+                        class="mt-2 form-control" id="">
+                    @endif
+                </div>
+                <h4 class="mt-2">Budget and Resources Required</h4>
+                <div class="border rounded p-2">
+                    <label class="mt-2">Budget required</label>
+                    <input type="text" name="budgetRequired" value="{{application.budgetRequired}}" disabled
+                        class="mt-2 form-control" id="">
+                    <label class="mt-2">Resources Required</label>
+                    <div class="form-group">
+                        @each(req in application.resourcesRequired)
+                        <input type="text" value="{{req}}" disabled class="from-control">
+                        @endeach
+                    </div>
+                </div>
+
+                <h4 class="mt-2">Documents Upload</h4>
+                <div class="border rounded p-2">
+                    <div class="row">
+                        @if(application.aadharCard)
+                        <div class="col-md-4">
+                            <label class="mt-2">Aadhar card</label>
+                            <img src="{{application.aadharCard}}" alt="" height="80%" width="100%">
+                        </div>
+                        @endif
+                        @if(application.studentId)
+                        <div class="col-md-4">
+                            <label class="mt-2">ID card</label>
+                            <img src="{{application.studentId}}" alt="" height="80%" width="100%">
+                        </div>
+                        @endif
+                        @if(application.noc)
+                        <div class="col-md-4">
+                            <label class="mt-2">Outsiders NOC</label>
+                            <img src="{{application.noc}}" alt="" height="80%" width="100%">
+                        </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            <center>
+                <div class="mx-auto mt-5">
+                    <a href="/" class="btn btn-primary">Back</a>
+                    <button class="btn btn-primary" onclick="window.print()">Print</button>
+                </div>
+            </center>
+        </div>
+    </section>
+</body>
+
+</html>

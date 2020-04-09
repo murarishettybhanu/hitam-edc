@@ -1,0 +1,71 @@
+@layout('layouts.app')
+@section('content')
+
+<section id="venue" class="wow fadeInUp mt-5">
+
+    <div class="container p-2 mt-5 mb-5">
+        <table class="table">
+            <tr>
+                <th>Application ID</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Comments</th>
+                <th>Options</th>
+            </tr>
+            @each(application in applications)
+            <tr>
+                <td>{{application.AppID}}</td>
+                <td>{{application.name}}</td>
+                <td>{{application.status}}</td>
+                @if(application.comment)
+                <td>{{application.comment}}</td>
+                @else
+                <td></td>
+                @endif
+                <td><a href="/preview/{{application._id}}">View Application</a><br>
+                    @if(admin)
+                    @if(application.status == "Pending")
+                    <a href="/update/{{application._id}}/status/Approved">Approve</a><br>
+                    <a href="/update/{{application._id}}/status/Rejected">Reject</a><br>
+                    @endif
+                    @if(application.status == "Rejected")
+                    <a href="#" data-toggle="modal" data-target="#writeComment"
+                        onclick="setCommentAction(/{{application._id}}/)">Add Comment</a><br>
+                    @endif
+                    @endif
+                </td>
+            </tr>
+            @endeach
+        </table>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="writeComment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Write a Comment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" id="myForm" method="GET">
+                    <label class="mt-2">Comment</label>
+                    <textarea name="comment" class="form-control mt-2"></textarea>
+                    <button class="btn btn-primary mt-3">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function setCommentAction(id) {
+        let route = "/update" + id + "comment/status"
+        document.getElementById("myForm").action = route;
+    }
+</script>
+
+@endsection
